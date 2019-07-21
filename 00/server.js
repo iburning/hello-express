@@ -1,14 +1,16 @@
 const http = require('http')
 const querystring = require('querystring')
+const url = require('url')
+ 
 
 const server = http.createServer()
 
 server.on('request', (req, res) => {
-  const [url, query_string] = req.url.split('?')
-  const query = querystring.parse(query_string)
+  const Url = url.parse(req.url)
+  const query = querystring.parse(Url.query)
 
-  console.log(req.url, url, query)
-  switch (url) {
+  // console.log(Url, query)
+  switch (Url.pathname) {
     case '/':
       res.end('<h1>Page Home</h1><p>hello world</p>')
       break
@@ -22,8 +24,20 @@ server.on('request', (req, res) => {
       res.end('<h1>Page About</h1>')
       break
 
+    case '/login':
+      res.end(JSON.stringify({
+        code: 200,
+        message: 'success',
+        data: {
+          user_id: '1221',
+          token: 'user_token'
+        }
+      }))
+      break
+
     default:
-    res.end('<h1>Page Not Found</h1>')
+      res.statusCode = 404
+      res.end('<h1>Page Not Found</h1>')
   }
 })
 
