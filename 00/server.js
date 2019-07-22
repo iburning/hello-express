@@ -1,7 +1,7 @@
 const http = require('http')
 const querystring = require('querystring')
 const url = require('url')
- 
+const jsonBody = require('body/json')
 
 const server = http.createServer()
 
@@ -25,14 +25,26 @@ server.on('request', (req, res) => {
       break
 
     case '/login':
-      res.end(JSON.stringify({
-        code: 200,
-        message: 'success',
-        data: {
-          user_id: '1221',
-          token: 'user_token'
+      jsonBody(req, res, (err, body) => {
+        if (err) {
+          console.warn('jsonBody ERROR', err)
+          return
         }
-      }))
+
+        console.log(body)
+        // todo:
+        // validate
+        // model.login
+
+        res.end(JSON.stringify({
+          code: 200,
+          message: 'success',
+          data: {
+            user_id: '1221',
+            token: 'user_token'
+          }
+        }))
+      })
       break
 
     default:

@@ -1,0 +1,30 @@
+{
+  "name": "hello-express",
+  "version": "1.0.0",
+  "description": "Learn and play Exporess.js",
+  "main": "index.js",
+  "dependencies": {
+    "body": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "dev:00": "nodemon ./00/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iburning/hello-express.git"
+  },
+  "keywords": [
+    "http",
+    "express"
+  ],
+  "author": "burning",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iburning/hello-express/issues"
+  },
+  "homepage": "https://github.com/iburning/hello-express#readme"
+}
