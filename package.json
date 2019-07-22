@@ -4,13 +4,15 @@
   "description": "Learn and play Exporess.js",
   "main": "index.js",
   "dependencies": {
-    "body": "^5.1.0"
+    "body": "^5.1.0",
+    "connect": "^3.7.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
   },
   "scripts": {
     "dev:00": "nodemon ./00/server.js",
+    "dev:01": "nodemon ./01/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -16,8 +16,7 @@ server.on('request', (req, res) => {
       break
 
     case '/blog':
-      const id = query.id
-      res.end(`<h1>Page Blog</h1><p>bolg id = ${id}</p>`)
+      res.end(`<h1>Page Blog</h1><p>bolg id = ${query.id}</p>`)
       break
 
     case '/about':
