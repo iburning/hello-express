@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  if detail
+    h1.title= detail.title
+    div.conetnt!= detail.content
+  else
+    strong.error blog not found

@@ -17,7 +17,7 @@
     "dev:00": "nodemon ./00/server.js",
     "dev:01": "nodemon ./01/server.js",
     "dev:02": "nodemon ./02/server.js",
-    "dev:03": "node ./03/bin/www",
+    "dev:03": "nodemon ./03/bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

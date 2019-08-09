@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Blog
+  
+  ul
+    for item in list
+      li
+        h4
+          a(href="/blog/detail/#{item.id}")= item.title
+    else
+      li sorry, no blog!
+
+  a(href="https://naltatis.github.io/jade-syntax-docs" target="_blank") jade syntax docs
