@@ -1,3 +1,6 @@
+// const model = require('../model/blog')
+// const service = require('../service/blog')
+
 const list = [
   {
     id: 1,
@@ -25,5 +28,30 @@ module.exports = {
     const { id } = req.params
     const detail = list[(parseInt(id, 10) || 0) - 1]
     res.render('blogDetail', { detail })
+  },
+
+  // 传统的回调方式
+  getDetail01(req, res, next) {
+    const { id } = req.params
+
+    model.getDetail({ id }, (err, data) => {
+      if (err) {
+        next(err)
+      } else {
+        res.render('blogDetail', { detail: data })
+      }
+    })
+  },
+
+  // 使用Promise
+  async getDetail02(req, res, next) {
+    const { id } = req.params
+
+    try {
+      const data = await service.getDetail({ id })
+      res.render('blogDetail', { detail: data })
+    } catch (err) {
+      next(err)
+    }
   }
 }
