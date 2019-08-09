@@ -2,6 +2,11 @@ const Router = require('router')
 
 const router = Router()
 
+viewBlog = function (params, res) {
+  const { id } = params
+  res.end(`<h1>Page Blog</h1><p>bolg id = ${id}</p>`)
+}
+
 router.get('/', (req, res) => {
   res.end('<h1>Page Home</h1><p>hello world</p>')
 })
@@ -9,13 +14,13 @@ router.get('/', (req, res) => {
 router.get('/blog', (req, res) => {
   console.log(req.query)
   const { id } = req.query
-  res.end(`<h1>Page Blog</h1><p>bolg id = ${id}</p>`)
+  viewBlog({ id }, res)
 })
 
 router.get('/blog/:id', (req, res) => {
-  console.log(req.pramas)
-  const { id } = req.pramas
-  res.end(`<h1>Page Blog</h1><p>bolg id = ${id}</p>`)
+  console.log(req.params)
+  const { id } = req.params
+  viewBlog({ id }, res)
 })
 
 router.get('/about', (req, res) => {
